@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User register</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
 <body>
-    fgdhjk
+    <form action="../userregister" method="post">
+        {% csrf_token %}
+        <input type="text"  name="username" placeholder="username" id=""><br>
+        <input type="text" name="password" placeholder="password" id=""><br>
+        <button type="submit">register</button>
+    </form>
 </body>
 </html>

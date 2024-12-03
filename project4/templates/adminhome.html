@@ -3,12 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>adminhome</title>
+    <style>
+        .navbar{
+            display: flex;
+            /* justify-content: space-between; */
+            background-color: wheat;
+        }
+        .logo{
+            /* background-color: red; */
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .services{
+            /* background-color: yellow; */
+            flex: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .searchbar{
+            /* background-color: green; */
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .services ul{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body>
-    welcome to adminhome page
-    <a href="../">go back
-    </a>
-    {{users}}
+    <div class="navbar">
+        <div class="logo">ADMINHOME</div>
+        <div class="searchbar"><input type="text" name="" placeholder="search" id=""></div>
+        <div class="services">
+            <ul>
+                <li>Home</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+        </div>
+    </div>
+    <div class="users">
+        <h1>USERS</h1>
+    </div>
+    {% for i in users %}
+        <div class="profile" style="border :1px solid black;">
+            <p>username : {{i.username}}</p>
+            <p>username : {{i.username}}</p>
+        </div>
+        <div class="profile1" style="display: flex; border:1px solid black;">
+            <p>username : {{i.username}}</p>
+            <p>username : {{i.username}}</p>
+            </div>
+        <div class="profile2" style="display: flex; border:1px solid black;">
+            <p>username : {{i.username}}</p>
+            <p>username : {{i.username}}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
