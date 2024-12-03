@@ -5,12 +5,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <!-- <link rel="stylesheet" href="{% static  'style.css' %}"> -->
+        <link rel="stylesheet" href="{% static  'style.css' %}">
     </head>
 <body>
-    <form action="admin_login" method="post">
-        <input type="text" placeholder="admin_name"><br>
-        <input type="text" placeholder="password"><br>
+    <form action="../adminlogin" method="post">
+        {% csrf_token %}
+        <input type="text"  name="username" placeholder="admin_name" id=""><br>
+        <input type="text" name="password" placeholder="password" id=""><br>
         <button type="submit">login</button>
     </form>
 </body>
