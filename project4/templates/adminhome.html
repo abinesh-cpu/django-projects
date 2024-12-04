@@ -47,7 +47,7 @@
         <div class="searchbar"><input type="text" name="" placeholder="search" id=""></div>
         <div class="services">
             <ul>
-                <li>Home</li>
+                <li><a href="../">Home</a></li>
                 <li>Contact</li>
                 <li>About</li>
             </ul>
@@ -56,19 +56,36 @@
     <div class="users">
         <h1>USERS</h1>
     </div>
-    {% for i in users %}
-        <div class="profile" style="border :1px solid black;">
-            <p>username : {{i.username}}</p>
-            <p>username : {{i.username}}</p>
-        </div>
-        <div class="profile1" style="display: flex; border:1px solid black;">
-            <p>username : {{i.username}}</p>
-            <p>username : {{i.username}}</p>
+    <div class="main">
+        {% for i in users %}
+        <div class="profile1" style="border :1px solid black; margin-top: 5px;">
+            <div class="login1">
+                <h2>PROFILE</h2>
+                <p>username : {{i.username}}</p>
+                <p>email : {{i.email}}</p>
             </div>
-        <div class="profile2" style="display: flex; border:1px solid black;">
-            <p>username : {{i.username}}</p>
-            <p>username : {{i.username}}</p>
         </div>
-    {% endfor %}
+        {% endfor %}
+        <!-- <div class="profile1">
+            <h2>dsjhfuyg</h2>
+            <p>fguerygu</p>
+        </div>
+        <div class="profile1">
+            <h2>dsjhfuyg</h2>
+            <p>fguerygu</p>
+        </div>
+        <div class="profile1">
+            <h2>dsjhfuyg</h2>
+            <p>fguerygu</p>
+        </div>
+        <div class="profile1">
+            <h2>dsjhfuyg</h2>
+            <p>fguerygu</p>
+        </div>
+        <div class="profile1">
+            <h2>dsjhfuyg</h2>
+            <p>fguerygu</p>
+        </div> -->
+    </div>
 </body>
 </html>
