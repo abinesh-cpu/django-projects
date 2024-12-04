@@ -6,12 +6,13 @@ def userlogin(request):
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password']
+        email=request.POST['email']
         for i in users:
-            if i['username']==username and i['password']==password:
+            if i['username']==username and i['password']==password and i['email']==email:
                 print("logged in successfully")
         # users.append({'username':username,'password':password})
                 return redirect(userhome)
-    return render(request,'userlogin.html')
+    return render(request,'index.html')
 adminusername="abi123"
 adminpassword="abi@123"
 def adminlogin(request):

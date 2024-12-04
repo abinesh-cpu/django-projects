@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>adminhome</title>
     <style>
+        body{
+            background-color: rgb(232, 232, 243);
+            margin: 5px;
+            border: 2px solid black;
+        }
         .navbar{
             display: flex;
             /* justify-content: space-between; */
-            background-color: wheat;
+            background-color: rgb(83, 152, 190);
         }
         .logo{
             /* background-color: red; */
@@ -39,6 +44,9 @@
             justify-content: space-evenly;
             list-style-type: none;
         }
+        .home{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -47,7 +55,7 @@
         <div class="searchbar"><input type="text" name="" placeholder="search" id=""></div>
         <div class="services">
             <ul>
-                <li><a href="../">Home</a></li>
+                <li><a class="home" href="../">Home</a></li>
                 <li>Contact</li>
                 <li>About</li>
             </ul>
@@ -58,7 +66,7 @@
     </div>
     <div class="main">
         {% for i in users %}
-        <div class="profile1" style="border :1px solid black; margin-top: 5px;">
+        <div class="profile1" style="border :1px solid black; margin: 5px;">
             <div class="login1">
                 <h2>PROFILE</h2>
                 <p>username : {{i.username}}</p>
