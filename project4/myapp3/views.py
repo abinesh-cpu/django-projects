@@ -1,18 +1,18 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from .models import *
 # Create your views here.
 users=[]
-user=[]
 def userlogin(request):
     if request.method=='POST':
         username=request.POST['username']
         password=request.POST['password']
         email=request.POST['email']
-        user.append({'username':username,'password':password,'email':email})
+        users.append({'username':username,'password':password,'email':email})
         for i in users:
             if i['username']==username and i['password']==password and i['email']==email:
                 print("logged in successfully")
-        # users.append({'username':username,'password':password})
+                users.append({'username':username,'password':password})
                 return redirect(userhome)
     return render(request,'index.html',{'user':user})
 adminusername="abi123"
@@ -33,6 +33,7 @@ def userreg(request):
         username=request.POST['username']
         password=request.POST['password']
         email=request.POST['email']
+        data=user.objects.create(username=username,email=email,password=password)
         users.append({'slno':slno+1,'username':username,'password':password,'email':email})
         print(users)
         return redirect(userlogin)
