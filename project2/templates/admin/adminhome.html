@@ -6,7 +6,7 @@
     <title>adminhome</title>
     <style>
         body{
-            background-color: rgb(232, 232, 243);
+            background-color: rgb(74, 74, 147);
             margin: 5px;
             border: 2px solid black;
         }
@@ -47,6 +47,9 @@
         .home{
             text-decoration: none;
         }
+        .link{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -65,12 +68,12 @@
         <h1>USERS</h1>
     </div>
     <div class="main">
-        {% for i in users %}
+        {% for i in user %}
         <div class="profile1" style="border :1px solid black; margin: 5px;">
             <div class="login1">
                 <h2>PROFILE</h2>
                 <p>username : {{i.username}}</p>
-                <p>email : {{i.email}}</p>
+                <!-- <p>email : {{i.email}}</p> -->
             </div>
         </div>
         {% endfor %}
@@ -94,6 +97,7 @@
             <h2>dsjhfuyg</h2>
             <p>fguerygu</p>
         </div> -->
+        <a href="adminlogin" class="link">logout</a><br>
     </div>
 </body>
 </html>

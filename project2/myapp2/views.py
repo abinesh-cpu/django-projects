@@ -15,14 +15,23 @@ def userlogin(request):
             return redirect(userlogin)
     return render(request,'user/userlogin.html')
 
+adminusername="abi123"
+adminpassword="abi@123"
 def adminlogin(request):
-    # if request.method=='POST':
-    #     username=request.POST['username']
-    #     password=request.POST['password']
-
+    if request.method=='POST':
+        username=request.POST['username']
+        password=request.POST['password']
+        if username==adminusername and password==adminpassword:
+            print("logged in")
+            request.session['adm']=adminusername
+            return redirect(adminhome)
     return render(request,'admin/adminlogin.html')
 def adminhome(request):
-    return render(request,'admin/adminhome.html')
+    if 'adm' in request.session:
+        user=User.objects.filter(username__startswith='j')
+        return render(request,'admin/adminhome.html',{'user':user})
+    else:
+        return redirect(adminlogin)
 def userreg(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -42,3 +51,7 @@ def userlogout(request):
     if '_auth_user_id' in request.session:
         auth.logout(request)
         return redirect(userlogin)
+def adminlogout(request):
+    if 'adm' in request.session:
+        del request.session['adm']
+        return redirect(adminlogin)
