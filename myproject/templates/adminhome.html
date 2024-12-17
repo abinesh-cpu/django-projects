@@ -8,7 +8,10 @@
     <!-- <link rel="stylesheet" href="{% static 'style.css' %}"> -->
     <style>
         body{
-            background-color: rgb(232, 232, 243);
+            background-color: blueviolet;
+        }
+        .main{
+            background: linear-gradient(to bottom, #310a8f, #7a06df);
             margin: 5px;
             border: 2px solid black;
         }
@@ -49,6 +52,9 @@
         .home{
             text-decoration: none;
         }
+        .link{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -67,16 +73,31 @@
         <h1>USERS</h1>
     </div>
     <div class="main">
-        {% for i in users %}
-        <div class="profile1" style="border :1px solid black; margin: 5px;">
-            <div class="login1">
-                <h2>PROFILE</h2>
-                <p>username : {{i.username}}</p>
-                <p>email : {{i.email}}</p>
-            </div>
+        <form action="../adminhome" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        <select name="d" id="">
+                            <option selected disabled>select your department</option>
+                                {% for i in deps %}
+                                    <option value="{{i.pk}}">{{i.dname}}</option>
+                                {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit">search</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        {% for i in emps %}
+        <div>
+            {{i.name}}
+            {{i.email}}
         </div>
         {% endfor %}
     </div>
-    <a href="../emp-reg">employee register</a>
+    <a href="../employereg" class="link">employee register</a>
 </body>
 </html>

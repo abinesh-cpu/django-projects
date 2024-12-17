@@ -15,6 +15,12 @@ def adminlogin(request):
             return redirect(adminhome)
     return render(request,'adminlogin.html')
 def adminhome(request):
-    return render(request,'adminhome.html')
+    emps=employee.objects.all()
+    deps=department.objects.all()
+    if request.method=='POST':
+        dep=request.POST['d']
+        deppk=department.objects.get(pk=dep)
+        emps=employee.objects.filter(dname=deppk)
+    return render(request,'adminhome.html',{'deps':deps,'emps':emps})
 def employereg(request):
     return render(request,'emp-reg.html')
