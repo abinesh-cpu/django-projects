@@ -23,4 +23,14 @@ def adminhome(request):
         emps=employee.objects.filter(dname=deppk)
     return render(request,'adminhome.html',{'deps':deps,'emps':emps})
 def employereg(request):
-    return render(request,'emp-reg.html')
+    departments=department.objects.all()
+    if request.method=='POST':
+        username=request.POST['username']
+        email=request.POST['email']
+        password=request.POST['password']
+        dep=request.POST['d']
+        current_dep=department.objects.get(pk=dep)
+        data=employee.objects.create(username=username,password=password,email=email,dname=current_dep)
+        data.save()
+        return redirect(adminlogin)
+    return render(request,'emp-reg.html',{'deps':departments})
