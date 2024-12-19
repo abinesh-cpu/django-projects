@@ -4,5 +4,6 @@ from django.db import models
 class student(models.Model):
     roll=models.IntegerField()
     name=models.TextField()
-    mark=models.IntegerField
+    mark=models.IntegerField()
+    
     
