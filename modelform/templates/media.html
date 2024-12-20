@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIA</title>
+    <style>
+        body{
+            color: red;
+            background-color: rgb(179, 179, 205);
+            background-size: cover;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .main{
+            height: 400px;
+            width: 400px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background: linear-gradient(to bottom, #310a8f, #7a06df);
+            margin: 5px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <!-- <form action="../index" method="POST">
+            <h1>MEDIA FORM</h1>
+            {% csrf_token %}
+            {{ form.as_p }}  
+        <button type="submit" value="Upload File">Save</button>
+        </form> -->
+        <form action="../upload_file" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="file" id="">
+            <input type="text" name="des" id="">
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>
