@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
 from .forms import *
-from django.http import HttpResponse   
+# from django.http import HttpResponse   
 
 # Create your views here.
 def model_form_dis(request):
